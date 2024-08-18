@@ -1,38 +1,262 @@
-.App {
-  text-align: center;
+/* General Container Styles */
+.container-light-mode, 
+.container-dark-mode {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-light-mode {
+  background-image: url('assets/bg-light.png');
+  color: #000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container-dark-mode {
+  background-image: url('assets/bg-dark.png');
+  color: white; 
+}
+
+.container-light-mode .search-input::placeholder {
+  color: #666; 
+}
+
+.container-dark-mode .search-input::placeholder {
+  color: #ccc;
+}
+
+/* Main Container */
+.container {
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.light-mode-button {
+  background-color: #f0f0f0; 
+  color: #000; 
+}
+
+.dark-mode-button {
+  background-color: #333; 
+  color: #fff; 
+}
+
+.theme-toggle:hover {
+  opacity: 0.9;
+}
+
+
+/* Weather Search Container */
+.weather-search-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Weather Details */
+.weather-details {
+  padding: 30px 30px 0 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  text-align: left;
+}
+
+.weather-details h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.weather-details p {
+  margin-bottom: 10px !important; /* Add space between elements */
+}
+
+/* Info Row */
+.weather-details .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: small;
+}
+
+.weather-details-temperature {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+/* Background Image (Sun) */
+.weather-details::before {
+  content: '';
+  position: absolute;
+  top: 150px;
+  right: 300px;
+  width: 250px;
+  height: 250px;
+  background-image: url('assets/sun.png');
+  background-size: cover;
+  z-index: 100;
+}
+
+/* Phone View */
+@media (max-width: 768px) {
+  .weather-details::before {
+    width: 35vw;
+    height: 35vw;
+    max-width: 200px;
+    max-height: 200px;
+    top: 200px;
+    right: 20px;
+  }
+
+  .weather-details-temperature {
+    font-size: 60px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Search History */
+.search-history {
+  width: 100%;
+  padding: 0 30px 30px 30px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.search-history h3 {
+  text-align: left;
+}
+
+.search-history-list {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.search-history ul {
+  list-style: none;
+  padding: 10px !important;
+}
+
+.search-history li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.search-history li span:first-child {
+  flex-grow: 1;
+}
+
+.search-history button {
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* UI Icon Button */
+.ui.icon.button.iconButton {
+  border-radius: 20px;
+  background-color: white;
+  margin: 5px;
+}
+
+/* Search Form */
+.search-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.search-input-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  max-width: 600px;
 }
 
-.App-link {
-  color: #61dafb;
+.search-input-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 100px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  color: black;
+  border: none;
+  background-color: transparent;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* Search Icon Button */
+.search-icon-button {
+  background-color: #781dbe !important;
+  border: none;
+  color: #666666;
+  cursor: pointer;
+  padding: 0 15px;
+  margin-left: 20px !important;
+  border-radius: 15px !important;
+  width: 55px;
+}
+
+.search-icon-button .icon {
+  font-size: 18px;
+}
+
+/* Miscellaneous */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.search-input-label {
+  color: #a09fb1;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.search-input-group {
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 5px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.separator {
+  color: #666666;
+  padding: 0 10px;
 }
